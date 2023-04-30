@@ -6,7 +6,7 @@
         <!-- meta viewport tag needed to make site responsive on mobile devices https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>WCC Portfolio - Demo Page</title>
+        <title>Beyond The Boundaries</title>
 
         <!-- including for some global styling -->
         <link rel="stylesheet" href="../css/style.css">
@@ -15,13 +15,13 @@
     <body>
         <!-- if you have sub-pages think about adding a simple back button -->
         <nav>
-            <a href="../">HOME</a>
+            <a href="../index.html">HOME</a>
         </nav>
         <header class="documentation-header">
             <section class="center-text">
-                <h1>Work Title</h1>
-                <h2>by Your Name</h6>
-                <p>Write a one-sentence summary of what the project is.</p> 
+                <h1>Beyond the Boundaries</h1>
+                <h2>by Jaime To</h6>
+                <p>It is an interactive installation where you are opening an endless loop of doors</p> 
             </section>
         </header>
 
@@ -33,72 +33,87 @@
             </section>
             <section>
                 <h3>Introduction</h3>
-                <p>Write a short introduction, a short paragraph, giving a bit more detail about what the project is.</p>
+                <p>The idea behind this project is the use of a physical door handle to open doors within a virtual walking simulator game. This piece is the incorporation of a door handle which is integrated with arduino and unity.
+
+                Dear data is a project created by Giorgia Lupi and Stefanie Posavec with the idea of collecting everyday data and visualizing this. One instance of this was collecting then visualizing the amount of doors they walk through in a day. This has sparked me to put the act of door opening in the forefront and the focus on my project. The act itself is also a significant action for me, as it signifies moving through transitional spaces, like taking the train, the tube, and ultimately opening the door to see my partner. 
+                
+                The mundane aspect of walking through doorways, which we do on a daily occurrence, is interesting to me as the act of opening a door and walking through it is not something we necessarily think about. It’s a piece of our everyday lives that we don’t remember and more often than not, we do it subconsciously. 
+                
+                I wanted to capture this through a walking simulator and using a physical door handle for when the participant opens a door. Walking simulators encapsulates a comparatively more mundane act to something like a shooter game, yet it holds its own charm exactly because of its day-to-day normalness. This led to the decision of making this project into a corridor of rooms and doors, instead of a one and done action. The repetitiveness accentuates and puts emphasis on the gesture, and the weight of each walking sequence. 
+                </p>
             </section>
             <section>
                 <h3>Concept and Background Research</h3>
                 
-                <p>Write about the concept behind the project, in other words the creative or theoretical inspiration. Include details about any background research you may have done (don’t forget to include references in the reference section).</p>
-                <p>Consider writing about your work in relation to a creative, theoretical or computational tradition that you may be taking inspiration from, in other words think about how your work is situated in a particular making tradition. </p>
+                <p>Dear data is a project created by Giorgia Lupi and Stefanie Posavec with the idea of collecting everyday data and visualizing this. One instance of this was collecting then visualizing the amount of doors they walk through in a day. This has sparked me to put the act of door opening in the forefront and the focus on my project. The act itself is also a significant action for me, as it signifies moving through transitional spaces, like taking the train, the tube, and ultimately opening the door to see my partner. 
+                
+                The mundane aspect of walking through doorways, which we do on a daily occurrence, is interesting to me as the act of opening a door and walking through it is not something we necessarily think about. It’s a piece of our everyday lives that we don’t remember and more often than not, we do it subconsciously. 
+                    
+                I wanted to capture this through a walking simulator and using a physical door handle for when the participant opens a door. Walking simulators encapsulates a comparatively more mundane act to something like a shooter game, yet it holds its own charm exactly because of its day-to-day normalness. This led to the decision of making this project into a corridor of rooms and doors, instead of a one and done action. The repetitiveness accentuates and puts emphasis on the gesture, and the weight of each walking sequence. </p>
                 
                 <!-- if you have a full width image try make it not too tall -->
-                <img src="../assets/images/repeating-diagonal-lines-strip.jpeg"/>
+                <img src="../assets/images/prototype sketch.png"/>
                 
             </section>
             <section>
                 <h3>Technical Implementation</h3>
-
-                <!-- example of styling for three images, you can write your own styling -->
-                <div class="flex-container flex-basis-third">
-                    <div class="flex-item">
-                        <img src="../assets/images/repeating-diagonal-lines-square.jpeg"/>
-                    </div>
-                    <div class="flex-item">
-                        <img src="../assets/images/repeating-diagonal-lines-square.jpeg"/>
-                    </div>
-                    <div class="flex-item">
-                        <img src="../assets/images/repeating-diagonal-lines-square.jpeg"/>
-                    </div>
-                </div>
-                
-                <p>Write about the process of implementing your project. What technical elements or hardware are involved in your system. Write about why you made certain technical or design decisions etc. </p>
+        
+                <p>
+                The participant would use the physical door handle as normal which would activate the door opening on the screen. To do this, I used a tilt sensor connected to the door handle which senses whether or not the door handle is being pulled down. The door handle will be installed against the wall and the animation of the door opening is shown through an overhead projector. This will force the participant to move closer to the wall to interact with it, creating a more immersive and interactive experience. 
+                    
+                The arduino build and code for the tilt sensor is taken from arduinointro, and is a simple set up for tilt sensor. I used animation in Unity to create the opening door and walking sequence. I then used Uduino to connect Arduino with unity to send data from the tilt sensor into Unity. Then using code, the data sent to unity will be used to trigger to play the animation and then it will wait until another data is received from the Arduino. This helps to control the pacing.
+                    
+                The animation in Unity is created by recording the change in axis, then controlled by the animator controller. I created functions of audio of footsteps playing and pausing in the same script and using events in animation clips to run the functions. 
+                    
+                There is a start scene, game scene and an exit scene. The start and exit scene is also controlled by the tilt sensor. In the game scene, there are 8 rooms, and the 9th door would lead to the exit scene. The exit scene would then loop back to the start of the game scene, creating a never ending loop of doors and walking. It is an artistic decision to accentuate the repetitiveness.
+                    
+                In an ideal situation, I would have added a user interface with a distance counter which would count down from one door to another, the number would be taken from my personal distance tracker with my partner. Additionally I would have liked to use subtle effects like color smokes or a change in colors in the room after opening the door and before walking to represent a change in mood. 
+                </p>
             
                 <!-- example of styling for three images, you can write your own styling -->
                 <div class="flex-container flex-basis-half">
                     <div class="flex-item">
-                        <img src="../assets/images/repeating-diagonal-lines-rect.jpeg"/>
+                        <img src="../assets/images/BTB documentation.PNG"/>
                     </div>
                     <div class="flex-item">
-                        <img src="../assets/images/repeating-diagonal-lines-rect.jpeg"/>
+                        <img src="../assets/images/BTB documentation 2.PNG"/>
+                    </div>
+                    <div class="flex-item">
+                        <img src="../assets/images/BTB documentation 3.jpeg"/>
+                    </div>
+                    <div class="flex-item">
+                        <img src="../assets/images/BTB setup.jpeg"/>
                     </div>
                 </div>
 
-                <!-- default flex item is for 4 & follows media query styling for home page -->
-                <div class="flex-container">
-                    <div class="flex-item">
-                        <img src="../assets/images/repeating-diagonal-lines-rect.jpeg"/>
-                    </div>
-                    <div class="flex-item">
-                        <img src="../assets/images/repeating-diagonal-lines-rect.jpeg"/>
-                    </div>
-                    <div class="flex-item">
-                        <img src="../assets/images/repeating-diagonal-lines-rect.jpeg"/>
-                    </div>
-                    <div class="flex-item">
-                        <img src="../assets/images/repeating-diagonal-lines-rect.jpeg"/>
-                    </div>
-                </div>
+                <img src="../assets/images/BTB in game.png"/>
          
             </section>
             <section>
                 <h3>Reflection and Future Development</h3>
-                <p>Reflect on how the project went, what went well, what you learnt etc. Based on these reflections, conclude with how you would further develop this project if you were to make another version or how you would further develop your ideas.</p>
+                <p>
+                    
+                I learnt a few things during this project of different ways I would approach it in the future. 
+                    
+                There is currently a delay in receiving data from the tilt sensor to the arduino. This delay is long enough to prevent detecting a tilt twice in a short period of time, but also too long that it fails to detect tilts quickly. In future iterations, I would dedicate more time into testing this to improve the connectivity. 
+                    
+                Additionally, the door handle is squeaky and tight. The tilting mechanism of the handle requires access from both sides, which could create difficulties if the handle is installed flush against the wall. A better logistical solution might be to place the handle on a plinth, away from the screen. Alternatively, a better door handle which doesn't require access from both sides would be better. 
+                    
+                I also considered whether it would be better to have the gameplay projected on a wall or have it seen on a screen. 
+                    
+                With a projector, the size of the gameplay would be adjustable and less clunky ​​when the display is mounted on the wall and the device is placed on a plinth. It would create a more immersive experience due to the size. However, the colors would be less vivid if the projection were unsuitable and the color doesn't look as vibrant when compared to colors on a screen. 
+                    
+                If a screen were used, the color would be more vibrant and there would be less loss of color. This would also provide a more intimate experience, as games are usually played in front of a screen. However, this would be a fixed size and it wouldn't be adaptable. Additionally, it would be awkward and bulky if there were a screen and apparatus. This would appear less polished. 
+                    
+                Ultimately, I think it was a successful prototype, but there are a few more things to reconsider, test and polish. It does, however, have  the important bits and pieces that I wanted to experiment with. 
+                </p>
             </section>
             <section>
                 <h3>References</h3>
                 <ul>
-                    <li>Technical Reference example. Include link where possible.</li>
-                    <li>Conceptual Reference example. Include link where possible.</li>
+                    <li><a href="https://arduinointro.com/projects/tilt-sensor-with-arduino-easy-tutorial">arduinointro</a></li>
+                    <li><a href="https://marcteyssier.com/uduino/">Uduino</li>
+                    <li><a href="http://www.dear-data.com/theproject">Dear Data</a></li>
                 </ul>
             </section>
         </main>
